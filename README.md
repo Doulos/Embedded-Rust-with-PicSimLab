@@ -2,7 +2,7 @@
 
 ## Board details
 
-![bluepill_board](/home/dcabanis/Documents/Rust/Code/PicSimLab_rust_demo/bluepill/pics/bluepill_board.png)
+![bluepill_board](pics/bluepill_board.png)
 
 https://stm32-base.org/boards/STM32F103C8T6-Blue-Pill.html
 
@@ -85,29 +85,29 @@ The default board displayed is an Arduino board. For this exercise however, we w
 - Inside the PICSimLab window choose the `Blue Pill` board by selecting the `Board->Blue Pill` sub menu
 - Set the `Qemu CPU MIPS` option to Auto. 
 
-![QEMU_CPU_MIPS](/home/dcabanis/Documents/Rust/Code/PicSimLab_rust_demo/bluepill/pics/QEMU_CPU_MIPS.png)
+![QEMU_CPU_MIPS](pics/QEMU_CPU_MIPS.png)
 
 - Click on the `Config Qemu` button and select the `Wait for GDB` option:
 
-![QEMU_Config](/home/dcabanis/Documents/Rust/Code/PicSimLab_rust_demo/bluepill/pics/QEMU_Config.png) 
+![QEMU_Config](pics/QEMU_Config.png) 
 
 - Configure PICSimLab by selecting the sub-menu: `File->Configure` and capture the following values:
 
-![PicSimLab_Config](/home/dcabanis/Documents/Rust/Code/PicSimLab_rust_demo/bluepill/pics/PicSimLab_Config.png)
+![PicSimLab_Config](pics/PicSimLab_Config.png)
 
 - Enable debug by clicking on the `Debug button` and make sure that the GDB debug port shows: 1234
 
-![bluepill_board_debug_enabled](/home/dcabanis/Documents/Rust/Code/PicSimLab_rust_demo/bluepill/pics/bluepill_board_debug_enabled.png) 
+![bluepill_board_debug_enabled](pics/bluepill_board_debug_enabled.png) 
 
 - Inside the PICSimLab window, display the peripherals used in this demo by selecting the sub-menu `Modules->Spare Parts` 
 
 - In the `Spare Parts` window, load the provided `periph_configuration.pcf` file by selecting the sub-menu `File ->Load configuration`
 
-![Peripherals](/home/dcabanis/Documents/Rust/Code/PicSimLab_rust_demo/bluepill/pics/Peripherals.png)
+![Peripherals](pics/Peripherals.png)
 
 - Inside the PicSimLab window, load the binary file `app.bin` created in an early step with the sub-menu: `File->Load Bin`
 
-![binary_selection](/home/dcabanis/Documents/Rust/Code/PicSimLab_rust_demo/bluepill/pics/binary_selection.png)
+![binary_selection](pics/binary_selection.png)
 
 - Inside a terminal window, navigate to the project's directory and call the GDB debugger with the command:
 
@@ -115,7 +115,7 @@ The default board displayed is an Arduino board. For this exercise however, we w
 gdb-multiarch target/thumbv7m-none-eabi/release/bluepill
 ```
 
-![GDB_start](/home/dcabanis/Documents/Rust/Code/PicSimLab_rust_demo/bluepill/pics/GDB_start.png)
+![GDB_start](pics/GDB_start.png)
 
 - Connect GDB to the QEMU (blue pill) GDB server with the command:
 
@@ -131,9 +131,9 @@ next
 run
 ```
 
-![GDB_running](/home/dcabanis/Documents/Rust/Code/PicSimLab_rust_demo/bluepill/pics/GDB_running.png)
+![GDB_running](pics/GDB_running.png)
 
-![Temperature_mesurements](/home/dcabanis/Documents/Rust/Code/PicSimLab_rust_demo/bluepill/pics/Temperature_mesurements.png)
+![Temperature_mesurements](pics/Temperature_mesurements.png)
 
 # Links
 
