@@ -1,0 +1,9 @@
+[build]
+target = "thumbv7m-none-eabi"
+
+[target.thumbv7m-none-eabi]
+runner = "gdb-multiarch target/thumbv7m-none-eabi/release/bluepill"
+#runner = "gdb-multiarch -q -x openocd.gdb"
+rustflags = [
+  "-C", "link-arg=-Tlink.x",
+]

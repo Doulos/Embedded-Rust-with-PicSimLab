@@ -1,0 +1,8 @@
+{
+  "rust-analyzer.check.allTargets": false,
+  "rust-analyzer.check.targets": "thumbv7m-none-eabi",
+  "cSpell.words": [
+    "GPIOB",
+    "USART"
+  ],
+}
