@@ -48,6 +48,18 @@ sudo apt install \
   binutils-arm-none-eabi
 ```
 
+# Download the project
+
+```console
+git clone https://github.com/Doulos/Embedded-Rust-with-PicSimLab.git
+```
+
+# Moving to the Project's directory
+
+```console
+cd Embedded-Rust-with-PicSimLab
+```
+
 # Build
 
 Build the provided project (inside the project's root directory):
@@ -62,7 +74,7 @@ You can achieve the same thing by running the shell script:
 ./run_me.sh
 ```
 
-# Debugging
+# Installing GDB's gdb-dashboard 
 
 - Optionally you can install `gdb-dashboard` for an improved debugging experience by placing the `.gdbinit` file in your home directory.
 
@@ -70,17 +82,26 @@ You can achieve the same thing by running the shell script:
 wget -P ~ https://github.com/cyrus-and/gdb-dashboard/raw/master/.gdbinit
 ```
 
+**Note**:Depending on your OS setup, GDB might not be able to pick up the `.gdbinit` directly from your home directory. In this case, you can try to copy the `.gdbinit` file to the project's directory instead. If this still doesn't not get picked up automatically, You will have to provide it explicitly as you are calling GDB's command line (see later for an example).
+
 - Optionally, If you want a little bit more eye candy with syntax highlighting inside GDB, you can install:
 
 ````
 pip install pygments
 ````
 
-- Install PicSimLab (using the unstable version : 0.9.2_240706).
+# Getting PicSimLab
+
+PicSimLab is an open-source virtual development boards environment allowing you to execute programs on various popular dev-boards without the need of a Physical board. 
+
+- Install PicSimLab (currently using the unstable version : 0.9.2_240706).
 
 https://github.com/lcgamboa/picsimlab/releases/tag/latestbuild
 
-The default board displayed is an Arduino board. For this exercise however, we will use the Blue Pill board.
+Various executable options are provided in the release web-page, you will need to download and execute the relevant one.
+
+
+When invoked for the first time, the default board displayed is an Arduino Uno board. For this exercise however, we will use the Cortex-M3 based Blue Pill board.
 
 - Inside the PICSimLab window choose the `Blue Pill` board by selecting the `Board->Blue Pill` sub menu
 - Set the `Qemu CPU MIPS` option to Auto. 
@@ -115,6 +136,12 @@ The default board displayed is an Arduino board. For this exercise however, we w
 gdb-multiarch target/thumbv7m-none-eabi/release/bluepill
 ```
 
+Alternatively, If you are having difficulties getting the `.gdbinit` file to get detected by GDB, you can use the command:
+
+```
+gdb-multiarch target/thumbv7m-none-eabi/release/bluepill -x .gdbinit
+```
+
 ![GDB_start](pics/GDB_start.png)
 
 - Connect GDB to the QEMU (blue pill) GDB server with the command:
@@ -124,12 +151,24 @@ gdb-multiarch target/thumbv7m-none-eabi/release/bluepill
   And you are rolling! You can issue the following commands to get you started with the GDB debug session:
 
 ```
-breakpoint main
+break main
 continue
 step
 next
 run
 ```
+
+To exit a running application you can type: `Ctrl+c` .
+
+To reset the embedded program's execution, you can type `system_reset`
+
+A helpful GDB tutorial can be found here: 
+
+https://freecoder.dev/gdb-cheat-sheet/
+
+A helpful cheat-sheet can be found here:
+
+https://freecoder.dev/GDB_Cheat_Sheet.pdf
 
 ![GDB_running](pics/GDB_running.png)
 
